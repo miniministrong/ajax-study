@@ -46,6 +46,16 @@ app.get("/ie", (request, response) => {
     response.send("Hello IE - 5!");
 });
 
+// 延迟响应
+app.get("/delay", (request, response) => {
+    // 设置响应头 设置允许跨域
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    setTimeout(() => {
+        // 设置响应体
+        response.send("Hello Timeout!");
+    }, 3000);
+    
+})
 
 // 监听端口启动服务
 app.listen(8000, ()=>{
